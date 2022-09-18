@@ -1,0 +1,156 @@
+\documentclass{homework}
+\author{Maya Basu}
+\class{Analytic Mechanics}
+\title{Class Notes}
+
+\newcommand{\inte}{\text{Int}}
+\newcommand{\clos}[1]{\overline{#1}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\OO}{\mathbb{O}}
+
+
+\begin{document} \maketitle
+
+\section{Kinematics}
+\begin{enumerate}
+    \item A body remains in uniform motion unless a force acts on it
+    \item $\frac{d\vec{p}}{dt} = \overarrow{F}$ 
+    \item For central forces, two bodies exert equal and opposite forces on one another
+\end{enumerate}
+Non-relatavistic momntum: $\vec{p} = m_{inertial}\vec{v}$ where $m_{inertial}$ is the inertial mass.
+
+\[\frac{d\vec{p}}{dt} = m_i\frac{d\vec{v}}{dt} = m_i\vec{a}\]
+so
+\[m_i\vec{a} = \vec{F} = m_gg\]
+where $m_g$ is the gravitational mass. It is an experimental fact that $m_i = m_g$, there is no difference between gravity and acceleration, the "Principle of equivelence"
+
+
+If $\vec{r}(t)$ is the position of a point then $\frac{\partial r}{\partial t} = \frac{dr}{dt} + O(dt)$. Specifically, $\partial r = \vec{r}(t + \partial t) - \vec{r}(t)$ and expanding with the taylor series of $\vec{r}$ about $t$ gives $\partial r = \vec{r}(t) + \vec{r'}\partial t - \vec{r}(t)$ or $\frac{\partial \vec{r}}{\partial t} = \vec{r'}$.
+
+Similarly, $\vec{a} = \frac{d\vec{v}}{dt}$.
+
+In a cartesian system, $\vec{r} = x(t)\hat{i} + y(t)\hat(j) + z(t)\hat{k}$, $\vec{v} = \dot{x}(t)\hat{i} + \dot{y}(t)\hat(j) + \dot{z}(t)\hat{k}$, and  $\vec{a} = \ddot{x}(t)\hat{i} + \ddot{y}(t)\hat(j) + \ddot{z}(t)\hat{k}$.
+
+However, the axis do not have to be fixed. 
+
+Suppose we have vectors $\vec{e_r}$ pointing to the position of the particle and $\vec{e_{\theta}}$ pointing at a right angle to the former. Then in terms of cartesian coordinates we have
+\[\hat{e_r} = \cos(\theta)\hat i + \sin (\theta) \hat j\]
+\[\hat{e_{\theta}} = -\sin(\theta)\hat i + \cos (\theta) \hat j\]
+And we have $\vec{v}(t) = \frac{d}{dt}(r\hat e_r) = \dot r \hat e_r + r \frac{d}{dt}\hat e_r $. However, since $\vec{e_r} = \cos(\theta)\hat i + \sin (\theta) \hat j$, we know that $\frac{d}{dt}\vec{e_r} = (-\sin(\theta)\hat i + \cos (\theta) \hat j)\dot{\theta} = \hat{e_{\theta}}\dot{\theta}$. Substituting back we get 
+\[\vec{v}(t) = \dot r \hat e_r + \hat{e_{\theta}}r\dot{\theta}\]
+
+Differentiating again gives 
+\[\vec{a}(t) = (\ddot{r} - r\dot{\theta}^2)\hat e_r + (2\dot{r}\dot{\theta} + r\ddot{\theta})\hat{e_{\theta}})\]
+which can alternatly be written as
+\[\vec{a}(t) = (\ddot{r} - r\dot{\theta}^2)\hat e_r + \frac{1}{r}\frac{d}{dt}(r^2\dot{\theta})\hat{e_{\theta}})\]
+
+
+\section{Cylindrical Coordinates}
+
+\section{Motion}
+\subsection{Partical undergoing vertical motion, only under the force of gravity (no air resistance)}
+\[m_i\frac{d\vec {v}}{dt} = -m_g g\]
+$m_i = m_g$ experimentally.
+\[v = C - gt\]
+If $v = v_0$ are some time $t_0$ then
+\[v = v_0 - gt\]
+Integrating again gives
+\[z = z_0 + v_0t - \frac{1}{2}gt^2\]
+\subsection{Air resistance (linear in the speed)}
+\[m\frac{d\vec {v}}{dt} = -m\alpha v-m g\]
+(we include the $m$ factor in front of $\alpha$ for convinience making $\alpha$ the perunit mass value.
+\[\frac{d\vec {v}}{dt} +\alpha v = - g\]
+(Inhomogeneous linear differential equation). The general solution is $v(t) = -\frac{g}{\alpha} + Ce^{-\alpha t}$ which we can find by multiplying byt eh appropriate exponential, or alternatly by sepparating variables. If $v = 0$ at $t = 0$, $v(t) = -\frac{g}{\alpha}(1 - e^{-\alpha t})$. We see at $t$ increases, this expression approaches $-\frac{g}{\alpha}$ which is the terminal velocity.
+
+We get the displacment, $z(t)$  by integrating again to get the general solution $z(t) = -\frac{g}{\alpha} t - \frac{g}{\alpha^2}e^{-\alpha t} + C$. If $z(0) = 0$ we get
+\[z(t) = -\frac{g}{\alpha}(t - \frac{1}{\alpha}(1 -  e^{-\alpha t})\]
+We note that as $t$ increases this becomes linear because of the terminal velocity. (Check this expression).
+
+\section{Quadratic Air Resistance}
+
+For a particle falling down:
+\[m\frac{dv}{dt} = m\alpha v^2 - mg\]
+We would need a $-$ sign infront of the air resistance factor if the particle was being thrown upwards.
+
+We can sepparate this equation and solve by  decomposing the fraction into two fractions with simple denominators, (check this) giving
+\[v(t) = v_{\infty} \frac{1 - e^{-2\sqrt{\alpha g }t}}{1 + e^{-2\sqrt{\alpha g }t}}\]
+As $t \rightarrow \infty$, the exponential factors decay and $v(t) \rightarrow v_{\infty}$.
+
+Question: What is the trick for sepparating out a fraction without cross multiplying?
+
+
+\section{2D motion with no air resistance}
+
+because there is no air resistance, we can decouple the two dimentions of motion:
+\[z(t) = v\sin(\alpha)-\frac{1}{2}gt^2\]
+For a particle startign at the origin, shot with speed $v$ at angle $\alpha$, and 
+\[x(t) = v\cos (\alpha)t\]
+The particle is at the ground at $z = 0$, the solutions for which are $t = 0$ and $t = \frac{2v\sin (\alpha )}{g}$. At this point the particle has traveled a distance $v\cos (\alpha ) \frac{2v\sin (\alpha )}{g} = \frac{v^2}{g}\sin (2 \alpha )$ which is maximized when $\alpha = 45^{\circ}$.
+
+\section{Motion along a frictionless inclined plane}
+
+Suppose that $\hat\sigma$ points out of the plane and $\hat s$ point up along the plane. Then along the plane
+\[m\ddot s = -mg\sin (\alpha)\]
+Perpendicular to the plane:
+\[m \ddot {\sigma} = N - mg \cos (\alpha) =0\]
+Thus if we assume the object is realsed at rest from $s = 0$ then
+\[\dot s = -g \sin (\alpha) t\]
+\[s = \frac{1}{2}\g \sin g (\alpha)t^2\]
+
+\section{Motion along an inclined plane with friction}
+
+The friction depends on the weight of the box, $F = \mu N$, in this case,
+\[\ddot s = -g(1 - \mu \cot (\alpha)\]
+or the same motion as before but with gravity decreased to $g(1 - \mu \cot (\alpha))$.
+
+
+
+\section{Free Space Rocket Motion}
+Motion in free space (no forces including gravity)
+In time $dt$, the rocket expells $dm'$ with a velocity $u$ relative to the rocket. By the second law, $\dot p = 0$ so 
+\[p(t) = p(t + dt) \rightarrow mv = (m - dm')(v + dv) + dm'(v - u)\]
+Multiplying this out, setting $dm = -dm'$ and neglecting the $dm'dv$ term, we get
+\[0 = mdv + udm\]
+or
+\[m\frac{dv}{dt} = -u\frac{dm}{dt}\]
+so for negative decrease in mass ($\frac{dm}{dt} <0$) we get positive acceleration. If $u$ is constant then 
+\[v - v_0 = u\ln \left( \frac{m_0}{m} \right)\]
+where we are integrating from $m_0$ to $m$. 
+
+\section{Rocket Motion with Gravity}
+$p$ is no longer conserved
+\[p(t + dt) - p(t) = -mgdt\]
+\[mdv + udm = -mgdt\]
+\[\int dv = -g\int dt - \int u \frac{dm}{m}\]
+If $v = 0$, $u$ is constant, and $m = m_0$ t $t = 0$, this becomes 
+\[v = -gt -u\ln \left(\frac{m}{m_0} \right) \]
+If the mass of the rocket is lost at a consta rate $\alpha = - \frac{dm}{dt}$ then $m = m_0(1 - \alpha t)$ so we get
+\[v = -gt -u\ln(1 - \alpha t) \]
+the taylor expansion of which gives
+\[\]
+
+
+
+
+
+\section{Conservation of Energy}
+
+
+
+
+Suppose that 
+
+
+
+We 
+
+
+
+
+
+$\vec{r}(t) = r(t)\hat{e_r}(t)$, with $\hat e_{\theta}$ pointing in the direction of motion.
+\[e_r = cos(\theta)\hat i\]
+
+
+\end{document}
