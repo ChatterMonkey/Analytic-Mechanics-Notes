@@ -128,7 +128,58 @@ If $v = 0$, $u$ is constant, and $m = m_0$ t $t = 0$, this becomes
 If the mass of the rocket is lost at a consta rate $\alpha = - \frac{dm}{dt}$ then $m = m_0(1 - \alpha t)$ so we get
 \[v = -gt -u\ln(1 - \alpha t) \]
 the taylor expansion of which gives
-\[\]
+\[v(t) = -gt + u\alpha t + O(t^2)\]
+so $v > 0$ provided that $\frac{u\alpha}{g} > 1$ (check this).
+
+\section{Conservation Laws}
+
+\begin{enumerate}
+    \item {Conservation of linear momentum $\vec{\dot{p}} = \vec{F}$ so $p = mv$ is constant componentwise if the forces are $0$ along that direction}
+    \item {Conservation of angular momentum relative to a point, $\vec{L} = \vec{r} \times \vec{p}$, and $\vec{\dot{L}} = \vec{\dot {r}} \times \vec{p} \text{(this factor is $0$ (parallel vectors))} + \vec{r} \times \vec{\dot {p}} = \vec{r} \times \vec{F} = \Tau$. So if $\Tau = 0$ then the torque about that point is constant}
+    \item {Energy Conservation - Work done by $F$ in moving a particle of mass $M$ from $r$ to $r + dr$ is $\vec{F} \cdot \vec{dr} = m\frac{dv}{dt}\frac{dr}{dt} dt = m\frac{dv}{dt}vdt = m$}
+    
+\end{enumerate}
+
+
+
+\section{Potential Energy}
+A scalar potential energy function can not be defined for all forces, for example, magnetic, friction, and constrained forces
+
+An irrotational vector field is a field with $0$ curl, $\nabla \times f = 0$. 
+
+Suppose $\vec{f}(\vec{x})$ is irrotational in a simply connected (any closed curve and be continuously defomed to a loint without leaving $V$) volume $V$. Then there exists a scalar function $U(x)$ such taht $\vec{f} = - \nabla U(\vec{x})$.
+
+If the volume is not simply connected, then a curve around a hole in the volume can have a non zero curl traveling around the hole, since we can not use stokes theorem. We disregard this case since we want the path integrals in this area to only depend on the initial and final points, giving 
+\[W = T_1 - T_0 = -(U_1 - U_0)\]
+is the change in potential. If we define $E = T + U$ then $E_1 = E_0$. 
+
+Remark: $dU = U(\vec{x} + d\vec{x}) - U(\vec{x}) = -\int_{\vec{x}}^{\vec{x} + \vec{dx}}\vec{f}\cdot dx$. Since all path integral between these two points must be the same, we picka s traight line, giving $\nabla U \cdot dx = -\vec{f}\cdot d\vec{x}$. Since this is alwyas true we conclude $\vec{f} = - \nabla U$. 
+
+
+Suppose that $\vec{f}$ is a time dependant irrotational foce field. Then
+\[\frac{d\vec{E}}{dt} = \frac{d}{dt}\frac{1}{2}m\vec{v}^2 + \frac{d}{dt}U(\vec{x},t)  = m\vec{v}\vec{\dot{v}} + \nabla U \vec{\dot{x}} + \frac{\del U}{\del t} = \vec{v} (-\nabla U) + \nabla U \vec{v} + \frac{\del U}{\del t}\]
+So if $\frac{\del U}{\del t} \neq 0$ then energy is no longer conserved.
+
+\subsection{Consequences of energy conservation in one dimention}
+For 1D we have $\frac{1}{2}mv^2 + U(x) = E$ so $v = \pm \sqrt{\frac{2(E-U(x)}{m}}$. To find the displacment we can sepparate variables to get
+
+
+
+
+
+\section{Center of Mass}
+
+We define the center of mass (CM) to be at
+\[\vec{R} = \frac{1}{M}\sum_{\alpha}m_{\alpha}\vec{r}_{\alpha}\]
+The center of mass is a property of the system of particles, if we displace the origin by $\vec{R} = \vec{a} + \vec{R'}$, $\vec{r}_{\alpha} = \vec{a} + \vec{r'}_{\alpha}$, then $\vec{R'} = \frac{1}{M}\sum_{\alpha}m_{\alpha}\vec{r'}_{\alpha} = \frac{1}{M}\sum_{\alpha}m_{\alpha}(\vec{r} - \vec{a})_{\alpha} = \frac{1}{M}\sum_{\alpha}m_{\alpha}\vec{r}_{\alpha} -a\frac{1}{M}\sum_{\alpha} m_{\alpha}$
+So this is the same point in the distribution and we can always pick the origin at the ceneter of mass if we want $\sum_{\alpha}m_{\alpha}\vec{r'}_{\alpha} = 0$
+
+
+For a continuous mass distribution, $M = \int_{V} \rho(\vec{r'})d^3r'$ and $ \int_{V} \vec{r'}\rho(\vec{r'})d^3r' = 0$ when the origin is the center of mass
+\section{Conservation for a system of Particles}
+
+
+
 
 
 
@@ -136,10 +187,12 @@ the taylor expansion of which gives
 
 \section{Conservation of Energy}
 
+Work done by the force moving a particle from $\vec{r}$ to $\vec{r + dr}$ is 
+\[dw = f\cdot \vec{dr} = m\vec{\dot{v}} \cdot \frac{dr}{dt}dt = m\vec{v} \cdot dv = d(\frac{1}{2}mv^2) \]
+where $v^2 = \vec{v} \cdot \vec{v}$. This implies 
+\[W = \int_{\vec{r_0}}^{\vec{r_1}}d(\frac{1}{2}mv^2 = T_1 - T_0 \]
 
 
-
-Suppose that 
 
 
 
@@ -151,6 +204,22 @@ We
 
 $\vec{r}(t) = r(t)\hat{e_r}(t)$, with $\hat e_{\theta}$ pointing in the direction of motion.
 \[e_r = cos(\theta)\hat i\]
+
+
+
+
+\section{Conservation of angular Momentum}
+With respect to some point, $\vec{L} = \sum_{\alpha}\vec{r}_{\alpha} \times \vec{p}_{\alpha} = \sum_{\alpha}\vec{r}_{\alpha} \times  m_{\alpha}\vec{\dot{r}}_{\alpha}$ which we can write as 
+\[\vec{L} = \sum_{\alpha} (\vec{R} + \vec{r'}_{\alpha}) \times m_{\alpha}(\vec{\dot{R}} + \vec{\dot{r}'}_{\alpha})\]
+where $R$ is the position of the center of mass of the system. We expand and simplify, using that $\sum_{\alpha}m_{\alpha}\vec {r'}_{\alpha} = 0= \sum_{\alpha}m_{\alpha}\vec {\dot{r}'}_{\alpha}$ because this is the center of mass calculated with repect to the center of mass (since we defined $\vec{r'}$ as the vector pointing from the center of mass to a particle). Then the expression becomes
+\[\vec{L} = \vec{R} \times \vec{P} + \sum_{\alpha}\vec{r'}_{\alpha} \times \vec{p'}_{\alpha}\]
+which is the angular momentum of the center of mass plus the interal angular momentum. 
+Taking the derivative we get
+\[\vec{\dot{L}} = \sum_{\alpha}\vec{r'}_{\alpha} \times \vec{p'}_{\alpha}\]
+Question: Why does the other term vanish?
+
+
+
 
 
 \end{document}
