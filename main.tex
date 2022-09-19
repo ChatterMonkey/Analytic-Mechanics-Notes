@@ -176,8 +176,47 @@ So this is the same point in the distribution and we can always pick the origin 
 
 
 For a continuous mass distribution, $M = \int_{V} \rho(\vec{r'})d^3r'$ and $ \int_{V} \vec{r'}\rho(\vec{r'})d^3r' = 0$ when the origin is the center of mass
-\section{Conservation for a system of Particles}
 
+\section{CLinear Momentum}
+
+The force on paticle $\alpha$ is 
+\[\vec{f}_{\alpha} = \vec{F}_{\alpha}^{ext} + \sum_{\beta, \beta \neq \alpha}\vec{f}_{\beta}^{int}\]
+We assume the weak version of Newton's thrid law, that $\vec{f}_{\alpha\beta}^{int} = \vec{f}_{\beta\alpha}^{int}$ (which does not require the forces to be central). Then the linear momentum is
+\[\vec{\dot{p_{\alpha}}} = m_{\alpha}\]
+
+
+
+\section{Oscilations}
+
+Suppose that a particle is at equilibrium at $x_0$. If it is perturbed away from $x_0$ slightly we get oscilitory motion. Let $x$ be the distance from $x_0$, then
+\[m\ddot x = -\dot U (x)\]
+And by the taylor expansion this is
+\[m\ddot x = -\ddot U(x_0)(x) + O(x^2)\]
+For small $x$ we can drop the quadratic term so get
+\[\ddt x = -\omega_0^2 x\]
+where $\omega_0^2 = \frac{\ddot U(x_0)}{m} > 0$ which is positive if $x_0$ is a minimum and negative for a maximum. 
+
+\subsection{}
+This is a second order partial differential equation in time adn thus has two constants. The solutions are
+$|C|\cos(\omega_0 t + \delta$ where $\delta = arg C$ or $A \cos (\omega_0 t) + B \sin (\omega_0 t)$ or $\Re (Ce^{i\omega_0 t)$ where $C = A - iB$.
+
+
+
+
+\subsection{Phase Space}
+In phase space we can write $\dot x = y$ and let $(x,y)$ be coordinates in phase space. So we have $\ddot x = \dot y =  -\omega_0^2 x$
+
+We can get an energy equation independant of time by multiplying our equation by $\dot x$ to get $\dot x \ddot x = -\omega_0^2 x \dot x$ = $\frac{1}{2}y^2 + \frac{1}{2}\omega_0^2x^2 = E$ where this constant of integration is the energy and this equation gives a family of elipses parameterized by $E$
+
+
+
+
+\section{Damped simple harmonic motion}
+In this case we have $\ddot x + 2\beta \dot x + \omega_0^2 x = 0$ where $2\beta >0$ is the damping coefficient. This equation has solutions of the form $x(t) = Ae^{\lambda t}$ where $\lambda = -\beta \pm \sqrt{\beta^2 - \omega_0^2}$ which gives $\lambda_1, \lambda_2$ depending on the sign
+
+\begin{enumerate}
+    \item  j
+\end{enumerate}
 
 
 
