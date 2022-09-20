@@ -7,7 +7,9 @@
 \newcommand{\clos}[1]{\overline{#1}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\BB}{\mathbb{B}}
+\newcommand{\MM}{\mathbb{M}}
 \newcommand{\OO}{\mathbb{O}}
+\newcommand{\m}[1]{\begin{bmatrix} #1 \end{bmatrix}}
 
 
 \begin{document} \maketitle
@@ -193,12 +195,14 @@ Suppose that a particle is at equilibrium at $x_0$. If it is perturbed away from
 And by the taylor expansion this is
 \[m\ddot x = -\ddot U(x_0)(x) + O(x^2)\]
 For small $x$ we can drop the quadratic term so get
-\[\ddt x = -\omega_0^2 x\]
+\[\ddot x = -\omega_0^2 x\]
 where $\omega_0^2 = \frac{\ddot U(x_0)}{m} > 0$ which is positive if $x_0$ is a minimum and negative for a maximum. 
+
+We have $x = A \cos (\omega t)$, $\dot x = -\omega_0^2 x$. If we set $\dot x = y$ then $\dot y = -\omega_0^2 x$ and $\frac{dy}{dx} = \frac{-\omega_0^2 x}{y}$. Sepparating this equation and integrating gives $\frac{1}{2}y^2 + \frac{1}{2}\omega_0^2x^2 = E$ which we can interpate as the kinetic energy plus the spring energy if $\omega_0^2 = k$ for the spring constant. 
 
 \subsection{}
 This is a second order partial differential equation in time adn thus has two constants. The solutions are
-$|C|\cos(\omega_0 t + \delta$ where $\delta = arg C$ or $A \cos (\omega_0 t) + B \sin (\omega_0 t)$ or $\Re (Ce^{i\omega_0 t)$ where $C = A - iB$.
+$|C|\cos(\omega_0 t + \delta$ where $\delta = arg C$ or $A \cos (\omega_0 t) + B \sin (\omega_0 t)$ or $\Re (Ce^{i\omega_0 t}$ where $C = A - iB$.
 
 
 
@@ -215,9 +219,44 @@ We can get an energy equation independant of time by multiplying our equation by
 In this case we have $\ddot x + 2\beta \dot x + \omega_0^2 x = 0$ where $2\beta >0$ is the damping coefficient. This equation has solutions of the form $x(t) = Ae^{\lambda t}$ where $\lambda = -\beta \pm \sqrt{\beta^2 - \omega_0^2}$ which gives $\lambda_1, \lambda_2$ depending on the sign
 
 \begin{enumerate}
-    \item  j
+    \item  If $\beta > \omega_0^2$ then $\lambda_i$ is real and negative - "over damped"
+    \item $\beta^2 = \omega_0^2$, $\lambda_1 = \lambda_2$ "critically damped"
+    \item $\beta^2 < \omega_0^2$ so $\lambda_1 = \overline{\lambda_2}$ "under damped
 \end{enumerate}
 
+
+In this case to get the phase space picture for $\ddot x + 2\beta \dot x + \omega_0^2 x = 0$ we let $\dot x = y$ so $\dot y = -2\beta y - \omega_0^2x$. And then the energy is 
+
+\subsection{Over Damped}
+
+$x(t) = Ae^{\lambda_1 t} + Be^{\lambda_2 t}$
+
+Inital value problem: $x(0) = x_0$, $\dot x(0) = 0$.
+
+So $x_0 = A + B$ and $A \lambda_1 + B \lambda_2 = 0$ so $A = \frac{x_0 \lambda_2}{\lambda_2 - \lambda_1}$, $B = -\frac{x_0 \lambda_1}{\lambda_2 - \lambda_1}$ which clearly implies $\lambda_1 \neq \lambda_2$ as is true in this case.
+
+
+
+\subsection{critically Damped}
+In this case the repeated root gives $x(t) = Ae^{-\beta t}$ but we need a second independent solution to fit to the inial data. We guess that it is of the form $v(t)e^{-\beta t}$. Substituting into $\ddot x + 2\beta \dot x + \omega_0^2 x = 0$ and using the fact that $\omega_0^2 - \beta^2 = 0$ we get $v'' = 0$ or $v = A + Bt$. 
+$x(t) = (A+Bt)e^{-\beta t}$
+
+
+Initial value problem:
+
+$A = x_0$, and then we differentiate to get $-\beta A + B = 0$ so $B = \beta x_0$
+
+\subsection{Under damped}
+$x(t) = e^{-\beta t}C \cos(\sqrt{\omega_0^2 - \beta^2}t + \delta)$ (shifted frequency of $\omega_0'  = \sqrt{\omega_0^2 - \beta^2}$ times a decaying exponential).
+
+
+Initial value problem: $C\cos(\delta) = x_0$ and differentiating gives $-\beta C \cos (\delta) - \sqrt{\omega_0^2 - \beta^2}\sin (\delta) =0$ so $\tan(\delta) = \frac{-\beta}{\sqrt{\omega_0^2 - \beta^2}}$, $\delta >0$ is the phase lag from dissapation. So $\cos (\delta) = \frac{\sqrt{\omega_0^2 + \beta^2}}{\omega_0}$, $C = \frac{\omega}{\sqrt{\omega_0^2 - \beta^2}}$
+
+
+
+Phase space interperatation
+
+$\dot{\m{x \\ y}} = \m{0 & 1 \\ -\omega_0^2 & -2\beta} \m{x \\ y}$. Since $\MM$ is constant we guess the solution is $\dot{\m{x \\ y}} = \dot{\m{x_0 \\ y_0}}e^{\lambda t}$ which meands we must have $(\lambda \mathbb{I} - \mathbb{M})\m{x_0 \\ y_0} = 0$
 
 
 
@@ -260,5 +299,9 @@ Question: Why does the other term vanish?
 
 
 
+\section{Forced Oscilations}
 
+$\ddot x + 2\beta \dot x + \omega_0^2 x = f(t)$ where $f(t)$ is the driving force of the system. Suppose that $f(t) = C \cos (\omega t)$ where $\omega$, the driving frequency, is not necesseraly $\omega_0$. 
+
+Solution: 
 \end{document}
