@@ -13,7 +13,8 @@
 
 
 \begin{document} \maketitle
-
+Constants
+k = coulumb force constant
 \section{Kinematics}
 \begin{enumerate}
     \item A body remains in uniform motion unless a force acts on it
@@ -51,6 +52,9 @@ which can alternatly be written as
 \section{Cylindrical Coordinates}
 
 \section{Motion}
+\section{Linear and quadratic air resistance}
+If we approximate air resistance as $\approx a + bv + cv^2 + \cdots$ and take the first few terms to be a resonable apporximation for small $v$, then since we want $f_{friction} = 0$ at $v = 0$, we get $bv + cv^2$. For large objects such as a baseball we can generally neglect $f_{lin}$ whereas for objects like a water drop both terms are importaint. However in experiments such as the oil drop experiments $f_{lin}$ dominates
+
 \subsection{Partical undergoing vertical motion, only under the force of gravity (no air resistance)}
 \[m_i\frac{d\vec {v}}{dt} = -m_g g\]
 $m_i = m_g$ experimentally.
@@ -179,13 +183,15 @@ So this is the same point in the distribution and we can always pick the origin 
 
 For a continuous mass distribution, $M = \int_{V} \rho(\vec{r'})d^3r'$ and $ \int_{V} \vec{r'}\rho(\vec{r'})d^3r' = 0$ when the origin is the center of mass
 
-\section{CLinear Momentum}
+\section{Linear Momentum}
 
 The force on paticle $\alpha$ is 
 \[\vec{f}_{\alpha} = \vec{F}_{\alpha}^{ext} + \sum_{\beta, \beta \neq \alpha}\vec{f}_{\beta}^{int}\]
 We assume the weak version of Newton's thrid law, that $\vec{f}_{\alpha\beta}^{int} = \vec{f}_{\beta\alpha}^{int}$ (which does not require the forces to be central). Then the linear momentum is
-\[\vec{\dot{p_{\alpha}}} = m_{\alpha}\]
-
+\[\vec{\dot{p_{\alpha}}} = \vec{F}_{\alpha}^{ext} + \sum_{\beta, \beta \neq \alpha}\vec{f}_{\beta}^{int}\]
+Considering the whole system
+\[\vec{\dot{P}} = \sum_{\alpha} \vec{\dot{p_{\alpha}}} = \sum_{\alpha}(\vec{F}_{\alpha}^{ext} + \sum_{\beta, \beta \neq \alpha}\vec{f}_{\beta}^{int})\]
+\[\vec{\dot{P}} = \sum_{\alpha} \vec{\dot{p_{\alpha}}} = \sum_{\alpha}\vec{F}_{\alpha}^{ext} = \vec{F_{\text{net ext}} }\]
 
 
 \section{Oscilations}
@@ -304,4 +310,24 @@ Question: Why does the other term vanish?
 $\ddot x + 2\beta \dot x + \omega_0^2 x = f(t)$ where $f(t)$ is the driving force of the system. Suppose that $f(t) = C \cos (\omega t)$ where $\omega$, the driving frequency, is not necesseraly $\omega_0$. 
 
 Solution: 
+
+
+
+
+\section{Two Body Problems}
+
+Consider two masses, $m_1$, $m_2$, approximated as point particles, at positions $r_1$, $r_2$ from the origin $O$, where $F_{12}$ and $F_{21}$ are the only forces and they are conservative and central.
+Since the forces are conservative we can have a potential function. For gravity, this means the force is $\frac{Gm_1m_2}{|\vec{r_1} - \vec{r_2}|^2}$ and the potential is  $-\frac{Gm_1m_2}{|\vec{r_1} - \vec{r_2}|}$
+
+We can see that for a system with a central focre that is translation invarient, $U(\vec{r_1},\vec{r_2})$ can actually be written as $U(|\vec{r_1}-\vec{r_2}|)$, so only the distance between the objects matters. We can then use $\vec{r} = \vec{r_1} - \vec{r_2}$ as the position of $1$ relative to $2$, where only the magnitude matters.
+
+
+In general we want to choose the origin to be the center of mass
+\[\vec{R} = \frac{r_1m_1 + r_2m_2}{m_1 + m_2}\]
+The total momentum of this system is the same as if all of the mass were concentrated at the center of mass moving along with it - $\vec{P} = M\vec{\dot R}$ Since the total momentum is constant, $\vec{\dot R}$ is constnat so we can choose an inertial frame moving along with the CM, where the total momentum is $0$ in this frame.
+
+In the case that $m_2 >>> m_1$, then the center of mass is approximately at $m_2$, which is moving very slowly, so we can think of it as roughly a single body problem.
+
+\subsection{Angular Momentum}
+
 \end{document}
