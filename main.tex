@@ -52,10 +52,10 @@ which can alternatly be written as
 \section{Cylindrical Coordinates}
 
 \section{Motion}
-\section{Linear and quadratic air resistance}
-If we approximate air resistance as $\approx a + bv + cv^2 + \cdots$ and take the first few terms to be a resonable apporximation for small $v$, then since we want $f_{friction} = 0$ at $v = 0$, we get $bv + cv^2$. For large objects such as a baseball we can generally neglect $f_{lin}$ whereas for objects like a water drop both terms are importaint. However in experiments such as the oil drop experiments $f_{lin}$ dominates
 
-\subsection{Partical undergoing vertical motion, only under the force of gravity (no air resistance)}
+\subsection{Friction less motion}
+
+\subsubsection{Vertical motion (no air resistance)}
 \[m_i\frac{d\vec {v}}{dt} = -m_g g\]
 $m_i = m_g$ experimentally.
 \[v = C - gt\]
@@ -63,30 +63,10 @@ If $v = v_0$ are some time $t_0$ then
 \[v = v_0 - gt\]
 Integrating again gives
 \[z = z_0 + v_0t - \frac{1}{2}gt^2\]
-\subsection{Air resistance (linear in the speed)}
-\[m\frac{d\vec {v}}{dt} = -m\alpha v-m g\]
-(we include the $m$ factor in front of $\alpha$ for convinience making $\alpha$ the perunit mass value.
-\[\frac{d\vec {v}}{dt} +\alpha v = - g\]
-(Inhomogeneous linear differential equation). The general solution is $v(t) = -\frac{g}{\alpha} + Ce^{-\alpha t}$ which we can find by multiplying byt eh appropriate exponential, or alternatly by sepparating variables. If $v = 0$ at $t = 0$, $v(t) = -\frac{g}{\alpha}(1 - e^{-\alpha t})$. We see at $t$ increases, this expression approaches $-\frac{g}{\alpha}$ which is the terminal velocity.
-
-We get the displacment, $z(t)$  by integrating again to get the general solution $z(t) = -\frac{g}{\alpha} t - \frac{g}{\alpha^2}e^{-\alpha t} + C$. If $z(0) = 0$ we get
-\[z(t) = -\frac{g}{\alpha}(t - \frac{1}{\alpha}(1 -  e^{-\alpha t})\]
-We note that as $t$ increases this becomes linear because of the terminal velocity. (Check this expression).
-
-\section{Quadratic Air Resistance}
-
-For a particle falling down:
-\[m\frac{dv}{dt} = m\alpha v^2 - mg\]
-We would need a $-$ sign infront of the air resistance factor if the particle was being thrown upwards.
-
-We can sepparate this equation and solve by  decomposing the fraction into two fractions with simple denominators, (check this) giving
-\[v(t) = v_{\infty} \frac{1 - e^{-2\sqrt{\alpha g }t}}{1 + e^{-2\sqrt{\alpha g }t}}\]
-As $t \rightarrow \infty$, the exponential factors decay and $v(t) \rightarrow v_{\infty}$.
-
-Question: What is the trick for sepparating out a fraction without cross multiplying?
 
 
-\section{2D motion with no air resistance}
+
+\subsubsection{2D motion (No air resistance)}
 
 because there is no air resistance, we can decouple the two dimentions of motion:
 \[z(t) = v\sin(\alpha)-\frac{1}{2}gt^2\]
@@ -94,7 +74,8 @@ For a particle startign at the origin, shot with speed $v$ at angle $\alpha$, an
 \[x(t) = v\cos (\alpha)t\]
 The particle is at the ground at $z = 0$, the solutions for which are $t = 0$ and $t = \frac{2v\sin (\alpha )}{g}$. At this point the particle has traveled a distance $v\cos (\alpha ) \frac{2v\sin (\alpha )}{g} = \frac{v^2}{g}\sin (2 \alpha )$ which is maximized when $\alpha = 45^{\circ}$.
 
-\section{Motion along a frictionless inclined plane}
+
+\subsubsection{Inclined plane (Friction Free)}
 
 Suppose that $\hat\sigma$ points out of the plane and $\hat s$ point up along the plane. Then along the plane
 \[m\ddot s = -mg\sin (\alpha)\]
@@ -104,11 +85,82 @@ Thus if we assume the object is realsed at rest from $s = 0$ then
 \[\dot s = -g \sin (\alpha) t\]
 \[s = \frac{1}{2}\g \sin g (\alpha)t^2\]
 
+
+\section{Frictionfull motion}
+
+
+
 \section{Motion along an inclined plane with friction}
 
 The friction depends on the weight of the box, $F = \mu N$, in this case,
 \[\ddot s = -g(1 - \mu \cot (\alpha)\]
 or the same motion as before but with gravity decreased to $g(1 - \mu \cot (\alpha))$.
+
+
+
+\subsection{Linear and quadratic air resistance}
+If we approximate air resistance as $\approx a + bv + cv^2 + \cdots$ and take the first few terms to be a resonable apporximation for small $v$, then since we want $f_{friction} = 0$ at $v = 0$, we get $bv + cv^2$. For large objects such as a baseball we can generally neglect $f_{lin}$ whereas for objects like a water drop both terms are importaint. However in experiments such as the oil drop experiments $f_{lin}$ dominates
+
+\section{Linear air resistance}
+
+
+\section{2D motion with linear air resistance}
+The general setup is
+\[m\vec{\dot{v}} = -m\vec{g} -b\vec{v}.\]
+Notice that this only depends on $v$, not $r$ so the equation is first order (then we can integrate to get $r$. Additionally, we can sepparate the equation into components which is only possible because the drag is not quadratic. 
+
+\subsection{Horizontal motion with linear friction}
+
+If we sepparate out the horizontal component we get
+\[\dot{v_x} = -\frac{b}{m}v_x\]
+or $v_x = v_{0x}e^{-\frac{b}{m}t}$ and $x(t) = x(0) + \int_{0}^{t}v_{0x}e^{-\frac{b}{m}t'}dt' = v_{0x}\frac{m}{b}(1 - e^{-t\frac{b}{m}})$ where $v_{0x}\frac{m}{b}$ is the limit.
+
+\subsection{Vertical motion with linear friction}
+Consider a particle with just vertical motion
+\[m\frac{dv}{dt} = -m\alpha v-m g\]
+(we include the $m$ factor in front of $\alpha$ for convinience making $\alpha$ the perunit mass value.
+\[\frac{d\vec {v}}{dt} +\alpha v = - g\]
+(Inhomogeneous linear differential equation). The general solution is $v(t) = -\frac{g}{\alpha} + Ce^{-\alpha t}$ which we can find by multiplying byt eh appropriate exponential, or alternatly by sepparating variables. If $v = 0$ at $t = 0$, $v(t) = -\frac{g}{\alpha}(1 - e^{-\alpha t})$. We see at $t$ increases, this expression approaches $-\frac{g}{\alpha}$ which is the terminal velocity.
+
+We get the displacment, $z(t)$  by integrating again to get the general solution $z(t) = -\frac{g}{\alpha} t - \frac{g}{\alpha^2}e^{-\alpha t} + C$. 
+\[z(t) = (v_{yo}+v_{ter})\tau(1 - e^{-t/\tau}) - v_{ter}t\]
+where $\tau = \alpha$ (which would usually be $\tau = b/m$)
+If $z(0) = 0$ we get
+\[z(t) = -\frac{g}{\alpha}(t - \frac{1}{\alpha}(1 -  e^{-\alpha t})\]
+We note that as $t$ increases this becomes linear because of the terminal velocity. (Check this expression).
+
+\section{Quadratic Air Resistance}
+
+Unfortunately unlike the linear case if the motion is in 2d we can not separate the equations and need to solve numerically. However, when the motion is restricted to 1d we can solve this problem. 
+
+\subsection{Horizontal motion with quadratic drag}
+
+If an object is moving horizontally with only quadratic drag we can write
+\[m\frac{dv}{dt} = -cv^2\]
+We sepparate this equation to get
+\[m\int{0}^{t} v^{-2}dv= -c \int{0}^{t}dt]\]
+\[mv^{-1}|{0}^{t} = ct]\]
+\[m(\frac{1}{v_f} - \frac{1}{v_i}) = ct\]
+or
+\[\frac{1}{v_f}  = ct/m + 1/v_i\]
+\[v_f = \frac{v_i}{ctv_i/m + 1}\]
+
+To find the displacement we can integrate again to get
+\[\Delta x = v_i\frac{m}{cv_i}\ln{ctv_i/m + 1}\]
+
+
+\subsection{Vertical motion with quadratic drag}
+
+For a particle falling down:
+\[m\frac{dv}{dt} = m\alpha v^2 - mg\]
+We would need a $-$ sign infront of the air resistance factor if the particle was being thrown upwards. When this equation is ballanced we can see that the terminal velocity $v_{\infty} = \sqrt{mg}{c}$. 
+
+We can sepparate this equation and solve by  decomposing the fraction into two fractions with simple denominators, (check this) giving
+\[v(t) = v_{\infty} \frac{1 - e^{-2\sqrt{\alpha g }t}}{1 + e^{-2\sqrt{\alpha g }t}}\]
+As $t \rightarrow \infty$, the exponential factors decay and $v(t) \rightarrow v_{\infty}$.
+
+Question: What is the trick for sepparating out a fraction without cross multiplying?
+
 
 
 
