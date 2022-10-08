@@ -215,8 +215,8 @@ Remark: $dU = U(\vec{x} + d\vec{x}) - U(\vec{x}) = -\int_{\vec{x}}^{\vec{x} + \v
 
 
 Suppose that $\vec{f}$ is a time dependant irrotational foce field. Then
-\[\frac{d\vec{E}}{dt} = \frac{d}{dt}\frac{1}{2}m\vec{v}^2 + \frac{d}{dt}U(\vec{x},t)  = m\vec{v}\vec{\dot{v}} + \nabla U \vec{\dot{x}} + \frac{\del U}{\del t} = \vec{v} (-\nabla U) + \nabla U \vec{v} + \frac{\del U}{\del t}\]
-So if $\frac{\del U}{\del t} \neq 0$ then energy is no longer conserved.
+\[\frac{d\vec{E}}{dt} = \frac{d}{dt}\frac{1}{2}m\vec{v}^2 + \frac{d}{dt}U(\vec{x},t)  = m\vec{v}\vec{\dot{v}} + \nabla U \vec{\dot{x}} + \frac{\delta U}{\delta t} = \vec{v} (-\nabla U) + \nabla U \vec{v} + \frac{\delta U}{\delta t}\]
+So if $\frac{\delta U}{\delta t} \neq 0$ then energy is no longer conserved.
 
 \subsection{Consequences of energy conservation in one dimention}
 For 1D we have $\frac{1}{2}mv^2 + U(x) = E$ so $v = \pm \sqrt{\frac{2(E-U(x)}{m}}$. To find the displacment we can sepparate variables to get
@@ -229,11 +229,22 @@ For 1D we have $\frac{1}{2}mv^2 + U(x) = E$ so $v = \pm \sqrt{\frac{2(E-U(x)}{m}
 
 We define the center of mass (CM) to be at
 \[\vec{R} = \frac{1}{M}\sum_{\alpha}m_{\alpha}\vec{r}_{\alpha}\]
+or
+\[\vec{R} = \frac{1}{M} \int \phi \vec{r} dv\]
 The center of mass is a property of the system of particles, if we displace the origin by $\vec{R} = \vec{a} + \vec{R'}$, $\vec{r}_{\alpha} = \vec{a} + \vec{r'}_{\alpha}$, then $\vec{R'} = \frac{1}{M}\sum_{\alpha}m_{\alpha}\vec{r'}_{\alpha} = \frac{1}{M}\sum_{\alpha}m_{\alpha}(\vec{r} - \vec{a})_{\alpha} = \frac{1}{M}\sum_{\alpha}m_{\alpha}\vec{r}_{\alpha} -a\frac{1}{M}\sum_{\alpha} m_{\alpha}$
 So this is the same point in the distribution and we can always pick the origin at the ceneter of mass if we want $\sum_{\alpha}m_{\alpha}\vec{r'}_{\alpha} = 0$
 
 
 For a continuous mass distribution, $M = \int_{V} \rho(\vec{r'})d^3r'$ and $ \int_{V} \vec{r'}\rho(\vec{r'})d^3r' = 0$ when the origin is the center of mass
+
+\subsection{Momentum with the center of mass}
+
+The momentum of a multiparticle system is:
+
+\[P = \sum_{a}p_a =\sum_{a}m_a\vec{\dot{r}} = M\dot{\vec{R}} \]
+So the total momentum of a system of particles is the same as the mumentum of a single ficticious particle with mas $M$ and the same velocity as the CM. Taking the derivative we get
+\[\dot{} = F_{\text{net ext}} = M\ddot{\vec{R}} \]
+So the center of mass moves as if it was a ficticious particle of mass M with just the external forces acting on it.
 
 \section{Linear Momentum}
 
@@ -244,6 +255,39 @@ We assume the weak version of Newton's thrid law, that $\vec{f}_{\alpha\beta}^{i
 Considering the whole system
 \[\vec{\dot{P}} = \sum_{\alpha} \vec{\dot{p_{\alpha}}} = \sum_{\alpha}(\vec{F}_{\alpha}^{ext} + \sum_{\beta, \beta \neq \alpha}\vec{f}_{\beta}^{int})\]
 \[\vec{\dot{P}} = \sum_{\alpha} \vec{\dot{p_{\alpha}}} = \sum_{\alpha}\vec{F}_{\alpha}^{ext} = \vec{F_{\text{net ext}} }\]
+
+\section{Angular Momentum}
+
+The angular momentum of a single particle with respect to a certain origin is defined as 
+\[l = \vec{r} \times \vec{p}\]
+
+Taking the  time derivative gives
+\[\dot{l} = \vec{\dot{r}} \times \vec{p} + \vec{r} \times \vec{\dot{p}}\]
+and the first term is $0$ so we get
+\[\dot{l} = \vec{r} \times F_{net} = T\]
+
+\subsection{Angular momentum with several particles}
+
+The total angular momentum is 
+\[L = \sum_{a}r_a \times p_a\]
+Differentiating with respect to $t$ we get
+\[\dot{L} = \sum_{a}\dot{r}_a \times p_a + \dot{r}_a \times \dot{p}_a = \sum_{a}\dot{r}_a \times F_a\]
+or pairing internal terms, if the force is central and satisfies the third law, we get
+\[\dot{L} = T_{ext}\]
+
+
+\section{Moment of Inertia}
+
+
+
+\section{Kepler's Laws}
+
+\subsection{Kepler's second law}
+
+"a planet orbiting a sun sweeps out equal areas in equal times" or $\dot{A}$ is constant. The area between the position vectors is $\frac{1}{2}(r_1 \times r_2)$ or
+\[dA = \frac{1}{2}(r \times v dt)\]
+\[dA/dt = \frac{1}{2m}(r \times p) = \frac{1}{2m}l\]
+and since agular momentum is conserved, $\dot{A} $ is constant
 
 
 \section{Oscilations}
@@ -380,6 +424,42 @@ The total momentum of this system is the same as if all of the mass were concent
 
 In the case that $m_2 >>> m_1$, then the center of mass is approximately at $m_2$, which is moving very slowly, so we can think of it as roughly a single body problem.
 
+The potential energy is in terms of $r$, and additionally, $\vec{r_1} = \vec{R} +\frac{m_2}{M}\vec{r}$ and $\vec{r_2} = \vec{R} -\frac{m_1}{M}\vec{r}$ so the total kinetic energy of the system is 
+\[\frac{1}{2}(m_1\vec{\dot{r_1}}^2 + m_2\vec{\dot{r_2}}^2)\]
+which expands and simplifies to 
+\[\frac{1}{2}(M\vec{\dot{R}}^2 + \mu \vec{\dot{r}}^2)\]
+if we let $\mu = \frac{m_1m_2}{m_1 + m_2}$ be the "reduced mass"
+
 \subsection{Angular Momentum}
+
+In the CM frame of reference the total angular momentum is
+\[L = \vec{r_1}\times\vec{\dot{r}_1}m_1 + \vec{r_2}\times\vec{\dot{r}_2}m_2\]
+In the CM frame with the center of mass at the origin (R = 0), we get $\vec{r_1} =\frac{m_2}{M}\vec{r}$ and $\vec{r_2} = -\frac{m_1}{M}\vec{r}$ and substituting in we get
+\[L = \vec{r_1}\times\vec{\dot{r}_1}m_1 + \vec{r_2}\times\vec{\dot{r}_2}m_2 = \dot{\vec{r}} \times \vec{r} \mu\]
+Since the angular momentum is constant, this means that $\dot{\vec{r}} $ and $ \vec{r}$ remain in the same plane so the motion reduces to two dimentions.
+
+Question: why does this imply the same plane (could theta be compensated for by differences in the magnitudes)
+
+
+\subsection{Equations of motion}
+
+Now that we know we are working in two dimentions we write out the equations of motion. The first is from the fact that the foces are central so angual momentum is conserved giving
+\[\mu r^2\dot{\theta} = l = \text{constant}\]
+and the second is from the radial coordinate of $F  = ma$ (using polar coordinates) and using $\mu$ instead of the two masses, giving
+\[\mu r(\dot{\theta})^2 - \frac{dU}{dr} = \mu\ddot{r}\]
+
+\subsection{The equavalent one dimentional problem}
+
+Since $\mu r^2\dot{\theta} = l$ we can use this to eliminate $\dot{\theta}$ to get
+\[\mu\ddot{r} =- \frac{dU}{dr} + F_{cf} \]
+where $F_{cf}$ is a ficticious "centrifugal" force $F_{cf} = \frac{l^2}{\mu r^3}$. 
+
+
+
+We can express this in terms of a "centrifugal potential energy" as $f_{cf} = -\frac{d}{dr}\frac{l^2}{\mu r^3} = -\frac{dU_{cf}}{dr}$ where this potential energy is defined as $\frac{l^2}{2\mu r^2}$
+
+
+
+
 
 \end{document}
