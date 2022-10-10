@@ -198,14 +198,15 @@ so $v > 0$ provided that $\frac{u\alpha}{g} > 1$ (check this).
     
 \end{enumerate}
 
-
+\subsection{Conservative forces}
+A force is said to be conservative iff it depends only on position (not velocity or time for example) and the work done by the force is path independent.
 
 \section{Potential Energy}
-A scalar potential energy function can not be defined for all forces, for example, magnetic, friction, and constrained forces
+A scalar potential energy function with $f = - \nabla U$ can not be defined for all forces, for example, magnetic, friction, and constrained forces
 
-An irrotational vector field is a field with $0$ curl, $\nabla \times f = 0$. 
+An irrational vector field is a field with $0$ curl, $\nabla \times f = 0$. 
 
-Suppose $\vec{f}(\vec{x})$ is irrotational in a simply connected (any closed curve and be continuously defomed to a loint without leaving $V$) volume $V$. Then there exists a scalar function $U(x)$ such taht $\vec{f} = - \nabla U(\vec{x})$.
+Suppose $\vec{f}(\vec{x})$ is irrational in a simply connected (any closed curve and be continuously deformed to a loint without leaving $V$) volume $V$. Then there exists a scalar function $U(x)$ such taht $\vec{f} = - \nabla U(\vec{x})$.
 
 If the volume is not simply connected, then a curve around a hole in the volume can have a non zero curl traveling around the hole, since we can not use stokes theorem. We disregard this case since we want the path integrals in this area to only depend on the initial and final points, giving 
 \[W = T_1 - T_0 = -(U_1 - U_0)\]
@@ -256,6 +257,20 @@ Considering the whole system
 \[\vec{\dot{P}} = \sum_{\alpha} \vec{\dot{p_{\alpha}}} = \sum_{\alpha}(\vec{F}_{\alpha}^{ext} + \sum_{\beta, \beta \neq \alpha}\vec{f}_{\beta}^{int})\]
 \[\vec{\dot{P}} = \sum_{\alpha} \vec{\dot{p_{\alpha}}} = \sum_{\alpha}\vec{F}_{\alpha}^{ext} = \vec{F_{\text{net ext}} }\]
 
+\section{Conservation of Angular momentum}
+
+
+\section{Conservation of angular Momentum}
+With respect to some point, $\vec{L} = \sum_{\alpha}\vec{r}_{\alpha} \times \vec{p}_{\alpha} = \sum_{\alpha}\vec{r}_{\alpha} \times  m_{\alpha}\vec{\dot{r}}_{\alpha}$ which we can write as 
+\[\vec{L} = \sum_{\alpha} (\vec{R} + \vec{r'}_{\alpha}) \times m_{\alpha}(\vec{\dot{R}} + \vec{\dot{r}'}_{\alpha})\]
+where $R$ is the position of the center of mass of the system. We expand and simplify, using that $\sum_{\alpha}m_{\alpha}\vec {r'}_{\alpha} = 0= \sum_{\alpha}m_{\alpha}\vec {\dot{r}'}_{\alpha}$ because this is the center of mass calculated with repect to the center of mass (since we defined $\vec{r'}$ as the vector pointing from the center of mass to a particle). Then the expression becomes
+\[\vec{L} = \vec{R} \times \vec{P} + \sum_{\alpha}\vec{r'}_{\alpha} \times \vec{p'}_{\alpha}\]
+which is the angular momentum of the center of mass plus the interal angular momentum. 
+Taking the derivative we get
+\[\vec{\dot{L}} = \sum_{\alpha}\vec{r'}_{\alpha} \times \vec{p'}_{\alpha}\]
+Question: Why does the other term vanish?
+
+
 \section{Angular Momentum}
 
 The angular momentum of a single particle with respect to a certain origin is defined as 
@@ -275,8 +290,15 @@ Differentiating with respect to $t$ we get
 or pairing internal terms, if the force is central and satisfies the third law, we get
 \[\dot{L} = T_{ext}\]
 
+\subsection{Angular momentum in the CM frame}
+
+Even if the CM is being accelerated, then
+\[\frac{d}{dt}L(about the CM) = T_{ext}(about the CM)\]
+!
 
 \section{Moment of Inertia}
+
+In general, $I = \sum m_a |r_a|^2$ where $|r_a|$ is the distance from the center of rotation, then $L = Iw$
 
 
 
@@ -288,6 +310,37 @@ or pairing internal terms, if the force is central and satisfies the third law, 
 \[dA = \frac{1}{2}(r \times v dt)\]
 \[dA/dt = \frac{1}{2m}(r \times p) = \frac{1}{2m}l\]
 and since agular momentum is conserved, $\dot{A} $ is constant
+
+
+\section{Conservation of Energy}
+
+Kinetic energy is $\frac{1}{2}mv^2 = \frac{1}{2}m(\vec{v} \cdot \vec{v}$ so differentiating gives $m\dot{v} \cdot v = F \cdot v$ 
+\[\frac{dT}{dt} = F \cdot v \]
+or
+\[dT = F \cdot dr\]
+so taking a line integral we have the work energy theorum
+\[\Delta T = W_{\text{done along the path}}\]
+
+Work done by the force moving a particle from $\vec{r}$ to $\vec{r + dr}$ is 
+\[dw = f\cdot \vec{dr} = m\vec{\dot{v}} \cdot \frac{dr}{dt}dt = m\vec{v} \cdot dv = d(\frac{1}{2}mv^2) \]
+where $v^2 = \vec{v} \cdot \vec{v}$. This implies 
+\[W = \int_{\vec{r_0}}^{\vec{r_1}}d(\frac{1}{2}mv^2 = T_1 - T_0 \]
+
+
+
+
+
+We 
+
+
+
+
+
+$\vec{r}(t) = r(t)\hat{e_r}(t)$, with $\hat e_{\theta}$ pointing in the direction of motion.
+\[e_r = cos(\theta)\hat i\]
+
+
+
 
 
 \section{Oscilations}
@@ -365,42 +418,6 @@ $\dot{\m{x \\ y}} = \m{0 & 1 \\ -\omega_0^2 & -2\beta} \m{x \\ y}$. Since $\MM$ 
 
 
 
-\section{Conservation of Energy}
-
-Work done by the force moving a particle from $\vec{r}$ to $\vec{r + dr}$ is 
-\[dw = f\cdot \vec{dr} = m\vec{\dot{v}} \cdot \frac{dr}{dt}dt = m\vec{v} \cdot dv = d(\frac{1}{2}mv^2) \]
-where $v^2 = \vec{v} \cdot \vec{v}$. This implies 
-\[W = \int_{\vec{r_0}}^{\vec{r_1}}d(\frac{1}{2}mv^2 = T_1 - T_0 \]
-
-
-
-
-
-We 
-
-
-
-
-
-$\vec{r}(t) = r(t)\hat{e_r}(t)$, with $\hat e_{\theta}$ pointing in the direction of motion.
-\[e_r = cos(\theta)\hat i\]
-
-
-
-
-\section{Conservation of angular Momentum}
-With respect to some point, $\vec{L} = \sum_{\alpha}\vec{r}_{\alpha} \times \vec{p}_{\alpha} = \sum_{\alpha}\vec{r}_{\alpha} \times  m_{\alpha}\vec{\dot{r}}_{\alpha}$ which we can write as 
-\[\vec{L} = \sum_{\alpha} (\vec{R} + \vec{r'}_{\alpha}) \times m_{\alpha}(\vec{\dot{R}} + \vec{\dot{r}'}_{\alpha})\]
-where $R$ is the position of the center of mass of the system. We expand and simplify, using that $\sum_{\alpha}m_{\alpha}\vec {r'}_{\alpha} = 0= \sum_{\alpha}m_{\alpha}\vec {\dot{r}'}_{\alpha}$ because this is the center of mass calculated with repect to the center of mass (since we defined $\vec{r'}$ as the vector pointing from the center of mass to a particle). Then the expression becomes
-\[\vec{L} = \vec{R} \times \vec{P} + \sum_{\alpha}\vec{r'}_{\alpha} \times \vec{p'}_{\alpha}\]
-which is the angular momentum of the center of mass plus the interal angular momentum. 
-Taking the derivative we get
-\[\vec{\dot{L}} = \sum_{\alpha}\vec{r'}_{\alpha} \times \vec{p'}_{\alpha}\]
-Question: Why does the other term vanish?
-
-
-
-
 \section{Forced Oscilations}
 
 $\ddot x + 2\beta \dot x + \omega_0^2 x = f(t)$ where $f(t)$ is the driving force of the system. Suppose that $f(t) = C \cos (\omega t)$ where $\omega$, the driving frequency, is not necesseraly $\omega_0$. 
@@ -435,7 +452,7 @@ if we let $\mu = \frac{m_1m_2}{m_1 + m_2}$ be the "reduced mass"
 In the CM frame of reference the total angular momentum is
 \[L = \vec{r_1}\times\vec{\dot{r}_1}m_1 + \vec{r_2}\times\vec{\dot{r}_2}m_2\]
 In the CM frame with the center of mass at the origin (R = 0), we get $\vec{r_1} =\frac{m_2}{M}\vec{r}$ and $\vec{r_2} = -\frac{m_1}{M}\vec{r}$ and substituting in we get
-\[L = \vec{r_1}\times\vec{\dot{r}_1}m_1 + \vec{r_2}\times\vec{\dot{r}_2}m_2 = \dot{\vec{r}} \times \vec{r} \mu\]
+\[L = \vec{r_1}\times\vec{\dot{r}_1}m_1 + \vec{r_2}\times\vec{\dot{r}_2}m_2 = \mu  \vec{r} \times \dot{\vec{r}} \]
 Since the angular momentum is constant, this means that $\dot{\vec{r}} $ and $ \vec{r}$ remain in the same plane so the motion reduces to two dimentions.
 
 Question: why does this imply the same plane (could theta be compensated for by differences in the magnitudes)
@@ -458,6 +475,31 @@ where $F_{cf}$ is a ficticious "centrifugal" force $F_{cf} = \frac{l^2}{\mu r^3}
 
 We can express this in terms of a "centrifugal potential energy" as $f_{cf} = -\frac{d}{dr}\frac{l^2}{\mu r^3} = -\frac{dU_{cf}}{dr}$ where this potential energy is defined as $\frac{l^2}{2\mu r^2}$
 
+This allows us to rewrite our original equation as 
+\[\mu \ddot{r} = -\frac{d}{dr}(U(r) + U_{cf}) = -\frac{d}{dr}U_{eff}\]
+where $U_{eff} = U(r) + \frac{l^2}{2\mu r^2}$. We can integrate this equation (with the usual trick of multiplying by $\dot{r}$ to get the energy equations
+\[\frac{1}{2}\mu\dot{r}^2 + U_{eff}(r) = E\]
+
+
+\section{The equation of orbit}
+
+We can take the equation $\mu \ddot{r} = F(r) + \frac{l^2}{\mu r^3}$ and substitute $r = \frac{1}{u(\phi)}$ to get an equation for the radius in terms of the angle (since we want the trajectory). Solving gives the transformed radial equation:
+\[\ddot{u}(\phi) = -u(\phi)-\frac{\mu}{l^2 u(\phi)^2}F\]
+
+We can find an explicit solution if we pick the form of out force. In particular if we have $F(r) = -\gamma/r^2$ then we get
+\[r(\phi) = \frac{c}{1 + \epsilon \cos(\phi)}\]
+where $c = \frac{l^2}{\gamma \mu}$ and $\epsilon$ is the eccentricity that determines the behavior. In particular, $\frac{b}{a} = sqrt{1 - \epsilon^2}$ where $b$ is the major axis and $a$ is the minor axis.
+
+\subsection{Keplar's first law}
+planets follow elipses with the sun at one of the focii
+
+
+
+\subsection{Keplar's third law}
+
+We can find the period by dividing the total area of the elipse by $dA/dT = l/2\mu$ to get $\tau^2= \frac{4\pi^2}{GM_{sun}}a^3$ where $a$ is the semi-minor axis
+
+\subsection{Energy and eccentricity}
 
 
 
